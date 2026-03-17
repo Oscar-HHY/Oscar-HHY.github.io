@@ -5,472 +5,514 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>何恒宇 | Oscar He</title>
   <meta name="description" content="何恒宇 Oscar He 的个人介绍网页：Actuarial & Financial Mathematics 本科生，聚焦 AI 应用开发、LLM、LangChain 与 RAG。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #121933;
-      --card: rgba(18, 25, 51, 0.78);
-      --text: #ecf2ff;
-      --muted: #b5c1e0;
-      --line: rgba(255,255,255,0.10);
-      --accent: #7c9cff;
-      --accent-2: #7ef0c7;
-      --shadow: 0 20px 60px rgba(0,0,0,0.28);
-      --radius: 24px;
-      --max: 1160px;
+      --white: #fbfbfd;
+      --bg: #ffffff;
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #86868b;
+      --border: rgba(0,0,0,0.06);
+      --border-hover: rgba(0,0,0,0.12);
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --surface: #f5f5f7;
+      --surface-hover: #e8e8ed;
+      --max: 980px;
+      --font-display: 'DM Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'DM Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
     body {
-      margin: 0;
-      font-family: "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(126,240,199,0.12), transparent 24%),
-        linear-gradient(180deg, #0a0f1e 0%, #0d1327 48%, #0b1020 100%);
-      line-height: 1.65;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg);
+      line-height: 1.58;
+      font-weight: 400;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 48px));
       margin: 0 auto;
     }
 
+    /* ── NAV ── */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(11,16,32,0.62);
-      border-bottom: 1px solid var(--line);
+      z-index: 100;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      min-height: 72px;
+      height: 52px;
     }
-
     .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      font-size: 0.93rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
     }
-
-    .brand strong {
-      font-size: 1.02rem;
-      letter-spacing: 0.02em;
-    }
-
-    .brand span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
     .nav-links {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .hero {
-      padding: 88px 0 42px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.9fr;
       gap: 28px;
-      align-items: stretch;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      font-weight: 400;
     }
-
-    .hero-main, .hero-side, .section-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .nav-links a {
+      transition: color 0.2s;
     }
+    .nav-links a:hover { color: var(--text-primary); }
 
-    .hero-main {
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
     }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -50px auto;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(124,156,255,0.2), transparent 70%);
-      pointer-events: none;
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(124,156,255,0.12);
-      color: #dbe5ff;
-      border: 1px solid rgba(124,156,255,0.24);
-      font-size: 0.9rem;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2.2rem, 5vw, 4.4rem);
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
       line-height: 1.08;
-      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 20px;
     }
-
-    .subtitle {
-      font-size: 1.15rem;
-      color: var(--muted);
-      margin: 0 0 22px;
-      max-width: 780px;
+    .hero h1 span {
+      background: linear-gradient(90deg, #0071e3, #34c759);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    .hero-copy {
-      color: #dce6ff;
-      font-size: 1rem;
-      margin-bottom: 28px;
-      max-width: 760px;
+    .hero-sub {
+      font-size: 1.18rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+      font-weight: 400;
     }
-
-    .btn-row {
+    .hero-cta {
       display: flex;
+      justify-content: center;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 26px;
+      margin-bottom: 64px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #5f7dff);
-      color: white;
-      border: none;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-    }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .meta-item {
-      padding: 16px 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .meta-item span {
-      display: block;
-      color: var(--muted);
+      gap: 6px;
+      height: 44px;
+      padding: 0 24px;
+      border-radius: 980px;
       font-size: 0.88rem;
-      margin-bottom: 6px;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
     }
-
-    .meta-item strong {
-      font-size: 1rem;
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
     }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+    }
+    .btn-ghost:hover { text-decoration: underline; }
+    .btn-ghost svg { width: 10px; height: 10px; }
 
-    .hero-side {
-      padding: 28px;
+    .hero-stats {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
+      justify-content: center;
+      gap: 64px;
+    }
+    .stat { text-align: center; }
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+      font-weight: 400;
     }
 
-    .stat-card {
-      padding: 18px 18px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 0;
     }
-
-    .stat-card h3 {
-      margin: 0 0 8px;
-      font-size: 0.98rem;
-      color: var(--muted);
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+    .section-label {
+      font-size: 0.78rem;
       font-weight: 600;
-    }
-
-    .stat-big {
-      font-size: 2rem;
-      font-weight: 800;
-      line-height: 1;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
     }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.55;
+      margin-bottom: 48px;
+    }
 
-    .side-list {
+    /* ── ABOUT ── */
+    .about-content {
       display: grid;
-      gap: 12px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
     }
-
-    .side-list li {
-      padding: 14px 14px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: #d9e4ff;
+    .about-text p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 16px;
     }
-
-    section {
-      padding: 22px 0;
+    .edu-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 32px;
     }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      letter-spacing: -0.02em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 620px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .section-card {
-      padding: 26px;
-    }
-
-    .section-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.12rem;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 22px 22px 22px 24px;
-      border-radius: 22px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 20px;
-      bottom: 20px;
-      width: 4px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, var(--accent), var(--accent-2));
-    }
-
-    .item-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-
-    .item-top h3 {
-      margin: 0;
-      font-size: 1.14rem;
-    }
-
-    .item-top .date {
-      color: var(--muted);
-      white-space: nowrap;
-      font-size: 0.94rem;
-    }
-
-    .role {
-      color: #dbe7ff;
+    .edu-card h3 {
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
     }
-
-    .bullets {
-      margin: 0;
-      padding-left: 18px;
-      color: #d5e0fb;
+    .edu-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 4px;
     }
-
-    .bullets li + li { margin-top: 8px; }
-
-    .tag-row {
+    .edu-card .tag-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      gap: 8px;
+      margin-top: 16px;
     }
-
     .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(124,156,255,0.12);
-      border: 1px solid rgba(124,156,255,0.22);
-      color: #dce6ff;
-      font-size: 0.9rem;
+      padding: 5px 12px;
+      border-radius: 980px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(0,0,0,0.05);
+      color: var(--text-secondary);
     }
 
+    /* ── EXPERIENCE ── */
+    .exp-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .exp-item {
+      background: var(--bg);
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+      transition: background 0.2s;
+    }
+    .exp-item:hover {
+      background: var(--surface);
+    }
+    .exp-meta .exp-company {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .exp-meta .exp-date {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+    }
+    .exp-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .exp-body ul {
+      padding-left: 0;
+    }
+    .exp-body li {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .exp-body li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
+    }
+
+    /* ── PROJECTS ── */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
-
     .project-card {
-      padding: 26px;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 32px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      transition: background 0.2s;
     }
-
-    .project-card p {
-      margin: 0;
-      color: #d7e2ff;
+    .project-card:hover {
+      background: var(--surface-hover);
     }
-
+    .project-card .project-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .project-card .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .project-card ul {
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+    .project-card li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .project-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
+    }
+    .project-card .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
     .project-links {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: auto;
-      padding-top: 6px;
+    }
+    .project-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      transition: opacity 0.2s;
+    }
+    .project-links a:hover {
+      text-decoration: underline;
     }
 
+    /* ── SKILLS ── */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
-
     .skill-block {
-      padding: 22px;
-      border-radius: 22px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 28px;
+      transition: background 0.2s;
     }
-
+    .skill-block:hover { background: var(--surface-hover); }
     .skill-block h3 {
-      margin: 0 0 14px;
-      font-size: 1.04rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .skill-block li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+    .skill-block li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
     }
 
-    .skill-block ul {
-      margin: 0;
-      padding-left: 18px;
-      color: #d4def8;
+    /* ── CONTACT ── */
+    .contact-inner {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
     }
-
-    .footer {
-      padding: 34px 0 60px;
-      color: var(--muted);
+    .contact-inner .section-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 8px;
+    }
+    .contact-item {
       text-align: center;
     }
-
-    .notice {
-      margin-top: 8px;
+    .contact-item .c-label {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .contact-item .c-value {
       font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .contact-item a.c-value {
+      color: var(--accent);
+    }
+    .contact-item a.c-value:hover {
+      text-decoration: underline;
     }
 
-    @media (max-width: 1024px) {
-      .hero-grid, .grid-2, .project-grid, .skills-grid {
-        grid-template-columns: 1fr;
-      }
-      .meta-grid { grid-template-columns: 1fr; }
+    /* ── FOOTER ── */
+    .footer {
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
     }
 
-    @media (max-width: 720px) {
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 14px 0;
-      }
-      .hero-main, .hero-side, .section-card, .project-card, .skill-block, .timeline-item {
-        padding: 22px;
-      }
-      .item-top {
-        flex-direction: column;
-      }
-      .btn-row { flex-direction: column; }
-      .btn { width: 100%; }
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .container { width: calc(100% - 40px); }
+      .hero { padding: 80px 0 56px; }
+      .hero-stats { gap: 32px; }
+      .stat-value { font-size: 1.8rem; }
+      .about-content { grid-template-columns: 1fr; gap: 32px; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; padding: 24px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 56px 0; }
+      .nav-links { gap: 16px; }
+      .hero-cta { gap: 12px; }
+      .contact-links { flex-direction: column; gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .nav-inner { flex-direction: column; height: auto; padding: 12px 0; gap: 8px; align-items: flex-start; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 24px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="nav">
     <div class="container nav-inner">
-      <div class="brand">
-        <strong>何恒宇 · Oscar He</strong>
-        <span>AI Applications · LLM · LangChain · RAG</span>
-      </div>
+      <div class="brand">Oscar He</div>
       <nav class="nav-links">
-        <a href="#about">关于我</a>
-        <a href="#education">教育背景</a>
-        <a href="#experience">实习经历</a>
-        <a href="#projects">项目经历</a>
+        <a href="#about">关于</a>
+        <a href="#experience">经历</a>
+        <a href="#projects">项目</a>
         <a href="#skills">技能</a>
         <a href="#contact">联系</a>
       </nav>
@@ -478,155 +520,123 @@
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <div class="eyebrow">面向 AI / LLM / 应用开发方向实习</div>
-          <h1>把数据分析背景，延伸到 <br>AI 应用落地与产品实现</h1>
-          <p class="subtitle">McMaster University 精算与金融数学本科在读，聚焦 AI 应用开发、LLM API 集成、LangChain、RAG 与 Streamlit 产品化展示。</p>
-          <p class="hero-copy">
-            我正在寻找与人工智能相关的实习机会，尤其关注 LLM 应用开发、Prompt Engineering、RAG 工作流、LangChain 以及数据驱动产品方向。
-            目前已独立完成多个可在线访问的 AI 应用，并具备从需求设计、功能实现、部署展示到 GitHub 项目呈现的完整实践经验。
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">查看 GitHub</a>
-            <a class="btn btn-secondary" href="#projects">查看项目</a>
-            <a class="btn btn-secondary" href="#contact">联系我</a>
+      <div class="container">
+        <div class="hero-eyebrow fade-in">面向 AI / LLM / 应用开发方向</div>
+        <h1 class="fade-in delay-1">从数据分析到<br><span>AI 应用落地</span></h1>
+        <p class="hero-sub fade-in delay-2">McMaster University 精算与金融数学本科在读，聚焦 LLM 应用开发、Prompt Engineering、RAG 工作流与 LangChain，具备从需求到部署的完整实践经验。</p>
+        <div class="hero-cta fade-in delay-3">
+          <a class="btn btn-primary" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">查看 GitHub</a>
+          <a class="btn btn-ghost" href="#projects">浏览项目 ›</a>
+        </div>
+        <div class="hero-stats fade-in delay-4">
+          <div class="stat">
+            <div class="stat-value">3.7</div>
+            <div class="stat-label">GPA · Top 10%</div>
           </div>
-          <div class="meta-grid">
-            <div class="meta-item">
-              <span>当前身份</span>
-              <strong>本科在读 · McMaster University</strong>
-            </div>
-            <div class="meta-item">
-              <span>目标方向</span>
-              <strong>AI / LLM / RAG / LangChain Intern</strong>
-            </div>
-            <div class="meta-item">
-              <span>核心关键词</span>
-              <strong>Python · Streamlit · Prompt Engineering</strong>
-            </div>
+          <div class="stat">
+            <div class="stat-value">2</div>
+            <div class="stat-label">AI 应用已上线</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">2×</div>
+            <div class="stat-label">Dean's Honour List</div>
           </div>
         </div>
-
-        <aside class="hero-side">
-          <div class="stat-card">
-            <h3>GPA</h3>
-            <div class="stat-big">3.7 / 4.0</div>
-            <div>Top 10% · 连续两年 Deans' Honour List</div>
-          </div>
-          <div class="stat-card">
-            <h3>项目亮点</h3>
-            <ul class="side-list">
-              <li>独立开发并部署 2 个 AI 应用</li>
-              <li>熟悉 LangChain 与 RAG 工作流</li>
-              <li>具备 LLM API 接入与产品展示经验</li>
-            </ul>
-          </div>
-          <div class="stat-card">
-            <h3>下一阶段</h3>
-            <div>进一步强化文档检索、知识库问答、向量检索与多用户 AI 应用架构。</div>
-          </div>
-        </aside>
       </div>
     </section>
 
+    <hr class="section-divider container">
+
+    <!-- ABOUT -->
     <section id="about">
-      <div class="container grid-2">
-        <div class="section-card">
-          <div class="section-head">
-            <div>
-              <h2>关于我</h2>
-            </div>
+      <div class="container">
+        <div class="section-label">关于我</div>
+        <div class="about-content">
+          <div class="about-text">
+            <div class="section-title">扎实的数理背景，<br>持续投入的 AI 实践</div>
+            <p>我具备扎实的数理与统计背景，能够快速理解模型逻辑、数据结构与业务问题，并将这些能力迁移到 AI 应用开发中。</p>
+            <p>相比单纯的模型概念学习，我更关注完整产品链路：从 API 接入、Prompt 设计、页面交互、会话逻辑，到部署展示和 GitHub 项目呈现。</p>
           </div>
-          <p>
-            我具备扎实的数理与统计背景，能够快速理解模型逻辑、数据结构与业务问题，并将这些能力迁移到 AI 应用开发中。
-            除了传统的数据分析与建模经验，我也持续投入在大模型应用方向，重点关注如何把 LLM 从“能调用”做到“能落地、能展示、能交互”。
-          </p>
-          <p>
-            相比单纯的模型概念学习，我更关注完整产品链路：从 API 接入、Prompt 设计、页面交互、会话逻辑，到部署展示和 GitHub 项目呈现。
-          </p>
-        </div>
-        <div class="section-card" id="education">
-          <div class="section-head">
-            <div>
-              <h2>教育背景</h2>
+          <div class="edu-card">
+            <h3>McMaster University</h3>
+            <p>Actuarial & Financial Mathematics</p>
+            <p>本科在读 · 2021.09 – 2026.06</p>
+            <p>GPA 3.7 / 4.0 · Top 10%</p>
+            <p>2023–2025 连续两年 Dean's Honour List</p>
+            <p style="margin-top:8px; color: var(--accent); font-weight: 500;">已获香港大学 MsBA 录取</p>
+            <div class="tag-row">
+              <span class="tag">Financial Mathematics</span>
+              <span class="tag">Statistics</span>
+              <span class="tag">Regression Analysis</span>
+              <span class="tag">Programming</span>
             </div>
-          </div>
-          <h3>McMaster University</h3>
-          <p>本科（在读） · Actuarial & Financial Mathematics · 2021.09 – 2026.06</p>
-          <p>GPA: 3.7 / 4.0 · Top 10%</p>
-          <p>2023–2024、2024–2025 Deans’ Honour List</p>
-          <p>已获香港大学 MsBA 录取（本科毕业后入学）</p>
-          <div class="tag-row">
-            <span class="tag">Financial Mathematics</span>
-            <span class="tag">Statistics</span>
-            <span class="tag">Regression Analysis</span>
-            <span class="tag">Programming</span>
           </div>
         </div>
       </div>
     </section>
 
+    <hr class="section-divider container">
+
+    <!-- EXPERIENCE -->
     <section id="experience">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>实习经历</h2>
+        <div class="section-label">实习经历</div>
+        <div class="section-title">真实场景中的<br>数据分析实践</div>
+        <div class="section-desc">在 Google 和中国联通的实习中，完成了从数据清洗到策略输出的完整分析流程。</div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-company">Google</div>
+              <div class="exp-date">2024.12 – 2025.01</div>
+            </div>
+            <div class="exp-body">
+              <h3>PTA 数据分析实习生</h3>
+              <ul>
+                <li>使用 Excel 与 MySQL 分析 2024 年 GMV 趋势，评估促销策略对销售表现的影响，助力流量提升 15%</li>
+                <li>开展竞品 SEO 与内容策略对比分析，优化曝光与点击表现，推动点击率提升 20%</li>
+                <li>分析用户行为、定价及渠道趋势，输出可执行营销洞察，支持内容优化与增长决策</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="item-top">
-              <div>
-                <h3>谷歌 PTA 数据分析实习生</h3>
-                <div class="role">Google · Data Analysis Internship</div>
-              </div>
-              <div class="date">2024.12 – 2025.01</div>
+          <div class="exp-item">
+            <div class="exp-meta">
+              <div class="exp-company">中国联通</div>
+              <div class="exp-date">2025.07 – 2025.08</div>
             </div>
-            <ul class="bullets">
-              <li>使用 Excel 与 MySQL 分析 2024 年 GMV 趋势，评估促销策略对销售表现的影响，提出优化方案并助力流量提升 15%。</li>
-              <li>开展竞品 SEO 与内容策略对比分析，优化曝光与点击表现，相关策略推动点击率提升 20%。</li>
-              <li>分析用户行为、定价及渠道趋势，输出可执行营销洞察，支持内容优化与增长决策。</li>
-            </ul>
-          </article>
-
-          <article class="timeline-item">
-            <div class="item-top">
-              <div>
-                <h3>中国联通集团有限公司 数据分析实习生</h3>
-                <div class="role">China Unicom · Data Analysis Internship</div>
-              </div>
-              <div class="date">2025.07 – 2025.08</div>
+            <div class="exp-body">
+              <h3>数据分析实习生</h3>
+              <ul>
+                <li>通过数据收集、清洗与可视化开展市场及消费者行为分析，提供可执行洞察</li>
+                <li>运用 Excel 与 Python 独立完成数据清洗、统计分析与结果整理</li>
+                <li>高效沟通与协作，参与知识共享与项目推进</li>
+              </ul>
             </div>
-            <ul class="bullets">
-              <li>通过数据收集、清洗与可视化开展市场及消费者行为分析，为团队提供市场趋势与客户偏好的可执行洞察。</li>
-              <li>熟练运用 Excel 与 Python 独立完成数据清洗、统计分析与结果整理，保证分析结果准确可靠。</li>
-              <li>与团队成员进行高效沟通与协作，参与知识共享与项目推进，为团队产出提供支持。</li>
-            </ul>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
+    <hr class="section-divider container">
+
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>项目经历</h2>
-          </div>
-        </div>
+        <div class="section-label">项目经历</div>
+        <div class="section-title">从构想到上线</div>
+        <div class="section-desc">独立完成需求设计、功能开发、部署展示的完整闭环。</div>
         <div class="project-grid">
           <article class="project-card">
+            <div class="project-label">AI 应用开发</div>
             <h3>AI 智能应用开发项目</h3>
-            <p><strong>个人项目 · 2026.01 – 2026.03</strong></p>
-            <p>基于 LLM API 与 Streamlit，独立开发并部署两个可在线访问的 AI 应用，完成从需求设计、功能实现到上线展示的完整流程。</p>
-            <ul class="bullets">
-              <li>开发 <strong>AI Partner</strong> 个性化智能对话助手，支持根据用户输入的姓名与性格特征生成个性化对话内容。</li>
-              <li>开发 <strong>AI Todo List</strong> 每日清单助手，结合任务管理与智能交互，实现任务记录、管理与辅助式对话体验。</li>
-              <li>使用 Streamlit 完成前端页面搭建与交互逻辑实现，并部署至 Streamlit Cloud。</li>
-              <li>使用 Git / GitHub 完成版本管理与项目展示，形成“代码仓库 + 在线演示”的完整呈现方式。</li>
-              <li>在开发过程中完成 API 密钥管理、基础项目结构配置及应用部署，积累 AI 应用落地经验。</li>
+            <p class="project-desc">基于 LLM API 与 Streamlit，独立开发并部署两个可在线访问的 AI 应用。</p>
+            <ul>
+              <li>AI Partner — 个性化智能对话助手，支持姓名与性格特征定制</li>
+              <li>AI Todo List — 结合任务管理与智能交互的每日清单助手</li>
+              <li>完成 API 密钥管理、项目配置及 Streamlit Cloud 部署</li>
+              <li>Git / GitHub 版本管理，形成代码仓库 + 在线演示的完整呈现</li>
             </ul>
             <div class="tag-row">
               <span class="tag">LLM API</span>
@@ -635,43 +645,43 @@
               <span class="tag">Deployment</span>
             </div>
             <div class="project-links">
-              <a class="btn btn-secondary" href="https://github.com/oscar-hhy/AI_Partner" target="_blank" rel="noreferrer">AI Partner · GitHub</a>
-              <a class="btn btn-secondary" href="https://ai-partner-streamlit.streamlit.app" target="_blank" rel="noreferrer">AI Partner · Live Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/oscar-hhy/AI_Todo_List" target="_blank" rel="noreferrer">AI Todo List · GitHub</a>
-              <a class="btn btn-secondary" href="https://ai-todo-list.streamlit.app" target="_blank" rel="noreferrer">AI Todo List · Live Demo</a>
+              <a href="https://github.com/Oscar-HHY/ai-partner-streamlit" target="_blank" rel="noreferrer">AI Partner · GitHub ›</a>
+              <a href="https://ai-partner-communication3.streamlit.app/" target="_blank" rel="noreferrer">AI Partner · Demo ›</a>
+              <a href="https://github.com/oscar-hhy/AI_Todo_List" target="_blank" rel="noreferrer">AI Todo · GitHub ›</a>
+              <a href="https://aitodolist-v1.streamlit.app/" target="_blank" rel="noreferrer">AI Todo · Demo ›</a>
             </div>
           </article>
-
           <article class="project-card">
+            <div class="project-label">学术研究</div>
             <h3>埃博拉疫情传播机制建模</h3>
-            <p><strong>项目负责人 · 2025.02 – 2025.04</strong></p>
-            <p>基于 2014–2016 西非疫情数据构建 SIFR 离散时间动态模型，完成稳定性分析与干预效果仿真。</p>
-            <ul class="bullets">
-              <li>使用 R 完成 100+ 次仿真，评估安全葬礼干预措施对疾病传播速度与感染规模的影响。</li>
-              <li>结果表明疫情约可在 50 天内消退，感染人数减少约 80%。</li>
-              <li>负责小组分工、技术把关、英文报告撰写与口头展示，项目报告获满分评价。</li>
+            <p class="project-desc">基于 2014–2016 西非疫情数据构建 SIFR 离散时间动态模型，完成稳定性分析与干预效果仿真。</p>
+            <ul>
+              <li>使用 R 完成 100+ 次仿真，评估安全葬礼干预措施的影响</li>
+              <li>疫情约可在 50 天内消退，感染人数减少约 80%</li>
+              <li>负责小组分工、技术把关与英文报告撰写，项目获满分</li>
             </ul>
             <div class="tag-row">
               <span class="tag">Mathematical Modeling</span>
               <span class="tag">R</span>
               <span class="tag">Simulation</span>
-              <span class="tag">Research Presentation</span>
+              <span class="tag">Research</span>
             </div>
             <div class="project-links">
-              <a class="btn btn-secondary" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">项目仓库占位</a>
+              <a href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">项目仓库 ›</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
+    <hr class="section-divider container">
+
+    <!-- SKILLS -->
     <section id="skills">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>个人技能</h2>
-          </div>
-        </div>
+        <div class="section-label">个人技能</div>
+        <div class="section-title">技术栈</div>
+        <div class="section-desc">覆盖 AI 应用开发、数据分析与跨文化协作的综合能力。</div>
         <div class="skills-grid">
           <div class="skill-block">
             <h3>AI 与大模型</h3>
@@ -688,13 +698,13 @@
               <li>Python</li>
               <li>Streamlit</li>
               <li>Git / GitHub</li>
-              <li>基础项目部署与展示</li>
+              <li>项目部署与展示</li>
             </ul>
           </div>
           <div class="skill-block">
             <h3>数据能力</h3>
             <ul>
-              <li>MySQL（查询 / 创建 / 索引优化）</li>
+              <li>MySQL</li>
               <li>Pandas / NumPy</li>
               <li>高级 Excel 函数</li>
               <li>统计分析与数据清洗</li>
@@ -705,7 +715,7 @@
             <ul>
               <li>英语可作为工作语言</li>
               <li>跨文化沟通能力</li>
-              <li>项目协作与表达能力</li>
+              <li>项目协作与表达</li>
               <li>快速学习与主动迭代</li>
             </ul>
           </div>
@@ -713,33 +723,57 @@
       </div>
     </section>
 
+    <hr class="section-divider container">
+
+    <!-- CONTACT -->
     <section id="contact">
-      <div class="container grid-2">
-        <div class="section-card">
-          <div class="section-head">
-            <div>
-              <h2>联系方式</h2>
+      <div class="container">
+        <div class="contact-inner">
+          <div class="section-label">联系方式</div>
+          <div class="section-title">Get in Touch</div>
+          <div class="section-desc">期待与你交流 AI 应用开发、LLM 工程化或任何有趣的合作机会。</div>
+          <div class="contact-links">
+            <div class="contact-item">
+              <div class="c-label">邮箱</div>
+              <div class="c-value">17623583685@163.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="c-label">GitHub</div>
+              <a class="c-value" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">github.com/oscar-hhy</a>
+            </div>
+            <div class="contact-item">
+              <div class="c-label">方向</div>
+              <div class="c-value">AI · LLM · RAG</div>
             </div>
           </div>
-          <p><strong>姓名：</strong>何恒宇 / Oscar He</p>
-          <p><strong>邮箱：</strong>17623583685@163.com</p>
-          <p><strong>GitHub：</strong><a href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">github.com/oscar-hhy</a></p>
-          <p><strong>方向：</strong>AI Intern · LLM Applications · LangChain · RAG</p>
-        </div>
-        <div class="section-card">
-          <div class="section-head">
-            
-          </div>
-          
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div>© 2026 Hengyu_He · Personal Website</div>
-    </div>
+    <div class="container">© 2026 Hengyu_He</div>
   </footer>
+
+  <!-- Scroll reveal -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('section:not(.hero)').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
