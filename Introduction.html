@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>何恒宇 | Oscar He</title>
-  <meta name="description" content="何恒宇 Oscar He 的个人介绍网页：Actuarial & Financial Mathematics 本科生，聚焦 AI 应用开发、LLM、LangChain 与 RAG。" />
+  <meta name="description" content="何恒宇 Oscar He 的个人介绍网页：数学与统计本科生，香港大学商业分析硕士已录取，聚焦 AI 应用开发、LLM、Claude Code、LangChain 与 RAG。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -231,6 +231,11 @@
       line-height: 1.6;
       margin-bottom: 4px;
     }
+    .edu-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
     .edu-card .tag-row {
       display: flex;
       flex-wrap: wrap;
@@ -244,6 +249,10 @@
       font-weight: 500;
       background: rgba(0,0,0,0.05);
       color: var(--text-secondary);
+    }
+    .tag-accent {
+      background: rgba(0,113,227,0.08);
+      color: var(--accent);
     }
 
     /* ── EXPERIENCE ── */
@@ -303,6 +312,10 @@
       border-radius: 50%;
       background: var(--text-tertiary);
     }
+    .exp-body li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
 
     /* ── PROJECTS ── */
     .project-grid {
@@ -318,6 +331,13 @@
       flex-direction: column;
       transition: background 0.2s;
     }
+    .project-card.featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #f5f5f7 0%, #ebf3ff 100%);
+    }
+    .project-card.featured:hover {
+      background: linear-gradient(135deg, #e8e8ed 0%, #dde9fa 100%);
+    }
     .project-card:hover {
       background: var(--surface-hover);
     }
@@ -326,12 +346,41 @@
       font-weight: 500;
       color: var(--accent);
       margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #1a8542;
+      background: rgba(52,199,89,0.12);
+      padding: 2px 9px;
+      border-radius: 980px;
+    }
+    .project-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #34c759;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
     .project-card h3 {
       font-size: 1.2rem;
       font-weight: 600;
       letter-spacing: -0.01em;
       margin-bottom: 10px;
+    }
+    .project-card.featured h3 {
+      font-size: 1.4rem;
     }
     .project-card .project-desc {
       font-size: 0.92rem;
@@ -347,7 +396,7 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
       line-height: 1.55;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       padding-left: 16px;
       position: relative;
     }
@@ -360,6 +409,10 @@
       height: 4px;
       border-radius: 50%;
       background: var(--text-tertiary);
+    }
+    .project-card li strong {
+      color: var(--text-primary);
+      font-weight: 600;
     }
     .project-card .tag-row {
       display: flex;
@@ -490,6 +543,7 @@
       .about-content { grid-template-columns: 1fr; gap: 32px; }
       .exp-item { grid-template-columns: 1fr; gap: 8px; padding: 24px; }
       .project-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: 1; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 56px 0; }
       .nav-links { gap: 16px; }
@@ -524,9 +578,9 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <div class="hero-eyebrow fade-in">面向 AI / LLM / 应用开发方向</div>
-        <h1 class="fade-in delay-1">从数据分析到<br><span>AI 应用落地</span></h1>
-        <p class="hero-sub fade-in delay-2">McMaster University 精算与金融数学本科在读，聚焦 LLM 应用开发、Prompt Engineering、RAG 工作流与 LangChain，具备从需求到部署的完整实践经验。</p>
+        <div class="hero-eyebrow fade-in">面向 AI / LLM / 产品开发方向</div>
+        <h1 class="fade-in delay-1">从数据分析到<br><span>AI 产品落地</span></h1>
+        <p class="hero-sub fade-in delay-2">麦克马斯特大学数学与统计本科在读，香港大学商业分析硕士已获录取。Claude Code 深度使用者，专注 LLM 应用开发、Prompt 工程化与从 0 到 1 的产品实践。</p>
         <div class="hero-cta fade-in delay-3">
           <a class="btn btn-primary" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">查看 GitHub</a>
           <a class="btn btn-ghost" href="#projects">浏览项目 ›</a>
@@ -537,12 +591,12 @@
             <div class="stat-label">GPA · Top 10%</div>
           </div>
           <div class="stat">
-            <div class="stat-value">2</div>
-            <div class="stat-label">AI 应用已上线</div>
+            <div class="stat-value">8+</div>
+            <div class="stat-label">可复用 AI Skills</div>
           </div>
           <div class="stat">
-            <div class="stat-value">2×</div>
-            <div class="stat-label">Dean's Honour List</div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">独立完成项目</div>
           </div>
         </div>
       </div>
@@ -556,22 +610,24 @@
         <div class="section-label">关于我</div>
         <div class="about-content">
           <div class="about-text">
-            <div class="section-title">扎实的数理背景，<br>持续投入的 AI 实践</div>
-            <p>我具备扎实的数理与统计背景，能够快速理解模型逻辑、数据结构与业务问题，并将这些能力迁移到 AI 应用开发中。</p>
-            <p>相比单纯的模型概念学习，我更关注完整产品链路：从 API 接入、Prompt 设计、页面交互、会话逻辑，到部署展示和 GitHub 项目呈现。</p>
+            <div class="section-title">数理为底，<br>产品为形，AI 为器</div>
+            <p>扎实的数学与统计训练让我能够快速理解模型逻辑、数据结构与业务问题；深度使用 Claude Code 等 AI 开发工具，让我能将这些理解高效转化为可上线的产品。</p>
+            <p>我相信 AI 时代的核心能力不是写最快的代码，而是策略性拆解任务、严格审查 AI 产出、并将经验沉淀为可复用资产。从需求定义、Prompt 设计、功能开发到部署上线，我习惯独立走完整个闭环。</p>
           </div>
           <div class="edu-card">
-            <h3>McMaster University</h3>
-            <p>Actuarial & Financial Mathematics</p>
-            <p>本科在读 · 2021.09 – 2026.06</p>
-            <p>GPA 3.7 / 4.0 · Top 10%</p>
-            <p>2023–2025 连续两年 Dean's Honour List</p>
-            <p style="margin-top:8px; color: var(--accent); font-weight: 500;">已获香港大学 MsBA 录取</p>
+            <h3>香港大学 · HKU</h3>
+            <p>商业分析 · 理学硕士（MSc Business Analytics）</p>
+            <p>已获有条件录取通知书 · 2026.09 – 2027.11</p>
+            <hr class="edu-divider">
+            <h3>麦克马斯特大学 · McMaster</h3>
+            <p>数学与统计 · 学士</p>
+            <p>2022.09 – 2026.04 · GPA 3.7 / 4.0</p>
+            <p>2023–2025 连续两年 Dean's Honour List · Top 10%</p>
             <div class="tag-row">
-              <span class="tag">Financial Mathematics</span>
               <span class="tag">Statistics</span>
               <span class="tag">Regression Analysis</span>
-              <span class="tag">Programming</span>
+              <span class="tag">数据金融</span>
+              <span class="tag">计算机编程</span>
             </div>
           </div>
         </div>
@@ -584,8 +640,8 @@
     <section id="experience">
       <div class="container">
         <div class="section-label">实习经历</div>
-        <div class="section-title">真实场景中的<br>数据分析实践</div>
-        <div class="section-desc">在 Google 和中国联通的实习中，完成了从数据清洗到策略输出的完整分析流程。</div>
+        <div class="section-title">真实业务场景中的<br>数据分析实践</div>
+        <div class="section-desc">在 Google 实习期间，独立完成从数据采集、建模到产品策略输出的完整链路。</div>
         <div class="exp-list">
           <div class="exp-item">
             <div class="exp-meta">
@@ -593,25 +649,11 @@
               <div class="exp-date">2024.12 – 2025.01</div>
             </div>
             <div class="exp-body">
-              <h3>PTA 数据分析实习生</h3>
+              <h3>数据分析实习生（线上）</h3>
               <ul>
-                <li>使用 Excel 与 MySQL 分析 2024 年 GMV 趋势，评估促销策略对销售表现的影响，助力流量提升 15%</li>
-                <li>开展竞品 SEO 与内容策略对比分析，优化曝光与点击表现，推动点击率提升 20%</li>
-                <li>分析用户行为、定价及渠道趋势，输出可执行营销洞察，支持内容优化与增长决策</li>
-              </ul>
-            </div>
-          </div>
-          <div class="exp-item">
-            <div class="exp-meta">
-              <div class="exp-company">中国联通</div>
-              <div class="exp-date">2025.07 – 2025.08</div>
-            </div>
-            <div class="exp-body">
-              <h3>数据分析实习生</h3>
-              <ul>
-                <li>通过数据收集、清洗与可视化开展市场及消费者行为分析，提供可执行洞察</li>
-                <li>运用 Excel 与 Python 独立完成数据清洗、统计分析与结果整理</li>
-                <li>高效沟通与协作，参与知识共享与项目推进</li>
+                <li><strong>竞品分析与内容策略：</strong>通过 Python 爬虫与 NLP 对竞品内容进行语义解析，结合 BERT 模型优化页面主题相关性，部署动态内容生成框架，提升曝光与点击率 20%</li>
+                <li><strong>数据驱动产品决策：</strong>运用 Excel 建模与 MySQL 时间序列分析 GMV 趋势，量化促销活动边际贡献，设计基于用户分层的 A/B 测试方案，实现自然流量提升 15%</li>
+                <li><strong>用户行为分析：</strong>基于 SQL 与聚类算法分析社交平台用户行为路径与多渠道转化归因，为产品内容策略优化提供数据支撑</li>
               </ul>
             </div>
           </div>
@@ -626,50 +668,78 @@
       <div class="container">
         <div class="section-label">项目经历</div>
         <div class="section-title">从构想到上线</div>
-        <div class="section-desc">独立完成需求设计、功能开发、部署展示的完整闭环。</div>
+        <div class="section-desc">独立完成需求定义、功能设计、开发与部署的完整闭环。</div>
         <div class="project-grid">
+
+          <article class="project-card featured">
+            <div class="project-label">
+              <span>个人项目 · AI 辅助产品开发</span>
+              <span class="project-status">进行中</span>
+            </div>
+            <h3>Pet Companionship — 宠物陪伴社交 App</h3>
+            <p class="project-desc">从 0 到 1 独立规划与开发的宠物主社交应用，覆盖宠物档案、健康管理、社区动态、私密记忆殿堂、即时通讯五大模块。</p>
+            <ul>
+              <li><strong>产品定义与场景拆解：</strong>独立完成产品规划，拆解宠物主核心场景，设计五大模块的功能架构与交互流程</li>
+              <li><strong>AI 辅助开发与资产沉淀：</strong>使用 Claude Code 作为核心 AI 开发工具，策略性拆分开发任务并对 AI 产出进行代码审查、质量把关与人工修正；沉淀 8+ 个可复用 Skills（Prompt 模板 + SOP + 评估标准），已推广至多个项目模块</li>
+              <li><strong>技术实现：</strong>React Native + Expo + TypeScript 移动端，Supabase（PostgreSQL + RLS + Auth）后端；实现多语言国际化、动态主题切换、2D 像素头像生成、楼中楼评论红点通知、微信级好友关系链与实时聊天等完整功能</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag tag-accent">Claude Code</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Expo</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">实时聊天</span>
+            </div>
+          </article>
+
           <article class="project-card">
-            <div class="project-label">AI 应用开发</div>
+            <div class="project-label">
+              <span>个人项目 · AI 应用开发</span>
+              <span class="project-status" style="color:#0071e3; background:rgba(0,113,227,0.1);">已上线</span>
+            </div>
             <h3>AI 智能应用开发项目</h3>
             <p class="project-desc">基于 LLM API 与 Streamlit，独立开发并部署两个可在线访问的 AI 应用。</p>
             <ul>
-              <li>AI Partner — 个性化智能对话助手，支持姓名与性格特征定制</li>
-              <li>AI Todo List — 结合任务管理与智能交互的每日清单助手</li>
-              <li>完成 API 密钥管理、项目配置及 Streamlit Cloud 部署</li>
-              <li>Git / GitHub 版本管理，形成代码仓库 + 在线演示的完整呈现</li>
+              <li><strong>AI Partner：</strong>个性化对话助手，可自定义伴侣昵称与性格特征，通过 Prompt Engineering 设计角色化对话生成逻辑，支持会话记忆、流式输出与多用户会话隔离</li>
+              <li><strong>AI Todo List：</strong>智能任务清单助手，集成 LLM 实现任务自动分类 / 优先级识别及 AI 智能排序，支持多用户账户体系</li>
+              <li>两款应用均已部署至 Streamlit Cloud 并在线可访问</li>
             </ul>
             <div class="tag-row">
               <span class="tag">LLM API</span>
               <span class="tag">Streamlit</span>
               <span class="tag">Prompt Engineering</span>
-              <span class="tag">Deployment</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/Oscar-HHY/ai-partner-streamlit" target="_blank" rel="noreferrer">AI Partner · GitHub ›</a>
-              <a href="https://ai-partner-communication3.streamlit.app/" target="_blank" rel="noreferrer">AI Partner · Demo ›</a>
+              <a href="https://ai-partner-communication3.streamlit.app/" target="_blank" rel="noreferrer">Demo ›</a>
               <a href="https://github.com/oscar-hhy/AI_Todo_List" target="_blank" rel="noreferrer">AI Todo · GitHub ›</a>
-              <a href="https://aitodolist-v1.streamlit.app/" target="_blank" rel="noreferrer">AI Todo · Demo ›</a>
+              <a href="https://aitodolist-v1.streamlit.app/" target="_blank" rel="noreferrer">Demo ›</a>
             </div>
           </article>
+
           <article class="project-card">
-            <div class="project-label">学术研究</div>
+            <div class="project-label">
+              <span>学术研究 · 数学建模</span>
+            </div>
             <h3>埃博拉疫情传播机制建模</h3>
             <p class="project-desc">基于 2014–2016 西非疫情数据构建 SIFR 离散时间动态模型，完成稳定性分析与干预效果仿真。</p>
             <ul>
-              <li>使用 R 完成 100+ 次仿真，评估安全葬礼干预措施的影响</li>
-              <li>疫情约可在 50 天内消退，感染人数减少约 80%</li>
+              <li>使用 R 完成 100+ 次仿真，评估安全葬礼等干预措施的影响</li>
+              <li>仿真结果显示疫情可在约 50 天内消退，感染人数减少约 80%</li>
               <li>负责小组分工、技术把关与英文报告撰写，项目获满分</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">Mathematical Modeling</span>
               <span class="tag">R</span>
-              <span class="tag">Simulation</span>
-              <span class="tag">Research</span>
+              <span class="tag">数学建模</span>
+              <span class="tag">仿真分析</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">项目仓库 ›</a>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -681,42 +751,43 @@
       <div class="container">
         <div class="section-label">个人技能</div>
         <div class="section-title">技术栈</div>
-        <div class="section-desc">覆盖 AI 应用开发、数据分析与跨文化协作的综合能力。</div>
+        <div class="section-desc">覆盖 AI 工具实操、产品思维、编程自动化与跨文化协作的综合能力。</div>
         <div class="skills-grid">
           <div class="skill-block">
-            <h3>AI 与大模型</h3>
+            <h3>AI 工具实操</h3>
             <ul>
-              <li>LangChain（基础）</li>
-              <li>RAG 工作流（基础）</li>
-              <li>Prompt Engineering</li>
-              <li>LLM API 接入与应用开发</li>
+              <li>Claude Code 深度使用者</li>
+              <li>8+ 可复用 Skills 沉淀</li>
+              <li>LangChain / RAG 工作流</li>
+              <li>Prompt 模板 → Agent → 评估全链路</li>
+              <li>ChatGPT / Gemini / DeepSeek</li>
             </ul>
           </div>
           <div class="skill-block">
-            <h3>编程与开发</h3>
+            <h3>产品思维</h3>
             <ul>
-              <li>Python</li>
-              <li>Streamlit</li>
-              <li>Git / GitHub</li>
-              <li>项目部署与展示</li>
+              <li>用户需求拆解</li>
+              <li>业务场景与竞品分析</li>
+              <li>从 0 到 1 完整产品经验</li>
+              <li>结构化产品文档撰写</li>
             </ul>
           </div>
           <div class="skill-block">
-            <h3>数据能力</h3>
+            <h3>编程与自动化</h3>
             <ul>
-              <li>MySQL</li>
-              <li>Pandas / NumPy</li>
-              <li>高级 Excel 函数</li>
-              <li>统计分析与数据清洗</li>
+              <li>Python（Pandas / NumPy / Streamlit）</li>
+              <li>MySQL · R · SAS</li>
+              <li>API 调用与批量自动化脚本</li>
+              <li>Git / GitHub 版本管理</li>
             </ul>
           </div>
           <div class="skill-block">
-            <h3>语言与软技能</h3>
+            <h3>自驱与协作</h3>
             <ul>
               <li>英语可作为工作语言</li>
-              <li>跨文化沟通能力</li>
-              <li>项目协作与表达</li>
-              <li>快速学习与主动迭代</li>
+              <li>对 AI 新技术高度好奇</li>
+              <li>主动发现 AI 提效场景</li>
+              <li>给方向即能产出</li>
             </ul>
           </div>
         </div>
@@ -731,19 +802,19 @@
         <div class="contact-inner">
           <div class="section-label">联系方式</div>
           <div class="section-title">Get in Touch</div>
-          <div class="section-desc">期待与你交流 AI 应用开发、LLM 工程化或任何有趣的合作机会。</div>
+          <div class="section-desc">期待与你交流 AI 应用开发、LLM 工程化、产品落地或任何有趣的合作机会。</div>
           <div class="contact-links">
             <div class="contact-item">
               <div class="c-label">邮箱</div>
               <div class="c-value">17623583685@163.com</div>
             </div>
             <div class="contact-item">
-              <div class="c-label">GitHub</div>
-              <a class="c-value" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">github.com/oscar-hhy</a>
+              <div class="c-label">手机 / 微信</div>
+              <div class="c-value">17623583685</div>
             </div>
             <div class="contact-item">
-              <div class="c-label">方向</div>
-              <div class="c-value">AI · LLM · RAG</div>
+              <div class="c-label">GitHub</div>
+              <a class="c-value" href="https://github.com/oscar-hhy" target="_blank" rel="noreferrer">github.com/oscar-hhy</a>
             </div>
           </div>
         </div>
